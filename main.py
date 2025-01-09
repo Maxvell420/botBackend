@@ -1,6 +1,15 @@
-dct1 = {"a": 1, "b": 2, "c": 3}
+from typing import Union
 
-dct2 = {"c": 4, "e": 4, "f": 5}
+from fastapi import FastAPI
 
-dct1.update(dct2)
-print(dct1)
+app = FastAPI()
+
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}

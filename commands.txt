@@ -1,7 +1,7 @@
 для создания виртуального окружения
 apt install python3.10-venv
 создание виртуального окружения в текущей папке где name имя
-python3 -m name .
+python3 -m venv .
 
 Для понятия отключено ли окружение можно посмотреть в терминале есть ли в круглых скобках имя окружения
 активация окружения
@@ -11,3 +11,6 @@ deactivate
 
 добавление репозитория в гит:
 git remote add origin git@github.com:Maxvell420/botBackend.git
+
+запуск сервера
+uvicorn main:app --reload
