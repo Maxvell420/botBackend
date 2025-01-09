@@ -14,3 +14,9 @@ git remote add origin git@github.com:Maxvell420/botBackend.git
 
 запуск сервера
 uvicorn main:app --reload
+
+сохранение библиотек различных подгружаемых
+pip freeze > requirements.txt
+
+установка из окружения нужных библиотек
+pip install -r requirements.txt
