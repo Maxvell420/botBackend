@@ -20,3 +20,6 @@ pip freeze > requirements.txt
 
 установка из окружения нужных библиотек
 pip install -r requirements.txt
+
+добавить содержимое .venv в гитигнор
+echo "*" > .venv/.gitignore
