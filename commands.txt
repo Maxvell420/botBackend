@@ -23,3 +23,8 @@ pip install -r requirements.txt
 
 добавить содержимое .venv в гитигнор
 echo "*" > .venv/.gitignore
+
+зайти в докер контейнер например с именем python
+docker exec -it python bash
+
+как оказалось в докере можно не активировать виртуальное окружение
