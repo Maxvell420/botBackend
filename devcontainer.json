@@ -1,6 +1,0 @@
-{
-    "name": "Python Dev Environment",
-    "build": {"dockerfile": ".docker/python/DockerFile"},
-    "forwardPorts": [8000],
-    "postCreateCommand": "pip install -r requirements.txt",
-}
