@@ -28,3 +28,11 @@ echo "*" > .venv/.gitignore
 docker exec -it python bash
 
 как оказалось в докере можно не активировать виртуальное окружение и стоит запускать локальное окружение и контейнеры для синка?
+
+Установка расширений для убунты .deb
+sudo dpkg -i $path
+
+Зайти в mysql
+mysql -u root -p
+получить всех юзеров
+SELECT User, Host FROM mysql.user;
