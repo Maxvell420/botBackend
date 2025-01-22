@@ -1,8 +1,0 @@
-[
-    {
-        "key": "ctrl+s",
-        "command": "workbench.action.tasks.runTask",
-        "args": "Format with Black",
-        "when": "editorTextFocus"
-    }
-]
