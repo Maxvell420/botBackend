@@ -1,14 +1,15 @@
 import mysql.connector
 
 
-class Connector:
+class connector:
     def __init__(self, user: str, password: str, host: str, database: str):
         self.user = user
         self.password = password
         self.host = host
         self.database = database
-        self.connectin = None
+        self.connection = None
         self.cursor = None
+        self.row = None
 
     def connect(self) -> mysql.connector.MySQLConnection:
         return mysql.connector.connect(
@@ -18,23 +19,22 @@ class Connector:
             database=self.database,
         )
 
-    def getConnect(self, func):
-        if self.connection == None:
+    def getConnect(self):
+        if self.connection is None:
             self.connection = self.connect()
-        return func
 
-    @getConnect
     def query(self, query: str, values: dict | None):
-        self.cursor = self.connect.cursor()
+        self.getConnect()
+        self.cursor = self.connect().cursor()
         self.cursor.execute(query, values)
 
-    def FetchRow(self) -> tuple | None:
-        if not (self.cursor == None):
+    def fetch_row(self) -> tuple | None:
+        if not self.cursor is None:
             return self.row
         return None
 
-    def nextRow(self) -> bool:
-        if not (self.cursor == None):
+    def next_row(self) -> bool:
+        if not self.cursor is None:
             self.row = None
             return False
 

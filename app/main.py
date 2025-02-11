@@ -1,14 +1,17 @@
 from typing import Union
-from .domain import test
+import os
+
+# from .domain import test
 from fastapi import FastAPI
 
 app = FastAPI()
 
 
 @app.get("/")
-@test.prov
 def read_root():
-    return {"Hello": "World"}
+    passw = os.environ.get("DB_PASSWORD")
+
+    return {"Hello": passw}
 
 
 @app.get("/items/{item_id}")
