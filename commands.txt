@@ -37,3 +37,5 @@ sudo dpkg -i $path
 mysql -u root -p
 получить всех юзеров
 SELECT User, Host FROM mysql.user;
+
+довольно плохая идея использовать декораторы внутри класса
