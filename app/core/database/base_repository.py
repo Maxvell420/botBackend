@@ -10,3 +10,7 @@ class Base_repository:
 
     def next_row(self):
         return self.connector.next_row()
+
+    def all(self, table: str):
+        self.connector.query("SELECT * FROM " + table)
+        data = dic
