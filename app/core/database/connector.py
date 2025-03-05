@@ -2,11 +2,12 @@ import mysql.connector
 
 
 class connector:
-    def __init__(self, user: str, password: str, host: str, database: str):
+    def __init__(self, user: str, password: str, host: str, database: str, port: str):
         self.user = user
         self.password = password
         self.host = host
         self.database = database
+        self.port = port
         self.connection = None
         self.cursor = None
         self.row = None
@@ -17,6 +18,7 @@ class connector:
             password=self.password,
             host=self.host,
             database=self.database,
+            port=self.port,
         )
 
     def getConnect(self):

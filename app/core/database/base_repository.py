@@ -5,7 +5,7 @@ class Base_repository:
     def __init__(self, conn: connector):
         self.connector: connector = conn
 
-    def query(self, query: str, values: dict):
+    def query(self, query: str, values: dict = None):
         self.connector.query(query, values)
 
     def next_row(self):
