@@ -11,11 +11,10 @@ app = FastAPI()
 def read_root():
     host = os.environ.get("DB_HOST")
     port = os.environ.get("DB_PORT")
-    user = os.environ.get("DB_USERNAME")
-    return 123
+    user = os.environ.get("DB_USER")
     passw = os.environ.get("DB_PASSWORD")
     base = os.environ.get("DB_DATABASE")
-    conn = connector(user, passw, host, base, port)
+    conn = connector(user=user, password=passw, host=host, database=base, port=port)
     repo = UserRepository(conn)
     data = repo.all()
     return data

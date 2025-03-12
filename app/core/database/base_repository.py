@@ -13,8 +13,9 @@ class Base_repository:
         return self.connector.next_row()
 
     def all(self):
-        return self.connector.query("SELECT * FROM " + self.table)
-        # data = {}
-        # while self.connector.next_row():
-        #     data.update(self.connector.fetch_row())
-        # return data
+        self.connector.query("SELECT * FROM " + self.table)
+        data = []
+
+        while self.connector.next_row():
+            data.append(self.connector.fetch_row())
+        return data

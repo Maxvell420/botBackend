@@ -12,8 +12,11 @@ services:
         environment:
             DB_USER: ${DB_USERNAME}
             DB_PASSWORD: ${DB_PASSWORD}
-            DB_HOST: ${DB_HOST}
+            DB_HOST: mysql
             DB_DATABASE: ${DB_DATABASE}
+            DB_PORT: ${DB_PORT}
+        networks:
+            - app
     mysql:
         container_name: mysql
         image: mysql:latest
@@ -27,6 +30,8 @@ services:
         - ./sql:/docker-entrypoint-initdb.d
         ports:
         - "${DB_PORT}:3306"
+        networks:
+            - app
 networks:
     app:
         driver: bridge
