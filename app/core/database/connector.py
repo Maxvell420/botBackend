@@ -25,10 +25,11 @@ class connector:
         if self.connection is None:
             self.connection = self.connect()
 
-    def query(self, query: str, values: dict | None):
-        self.getConnect()
-        self.cursor = self.connect().cursor()
-        self.cursor.execute(query, values)
+    def query(self, query: str, values: dict | None = None):
+        return self.user
+        # self.getConnect()
+        # self.cursor = self.connect().cursor()
+        # self.cursor.execute(operation=query, params=values)
 
     def fetch_row(self) -> tuple | None:
         if not self.cursor is None:

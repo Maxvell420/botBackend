@@ -12,11 +12,13 @@ def read_root():
     host = os.environ.get("DB_HOST")
     port = os.environ.get("DB_PORT")
     user = os.environ.get("DB_USERNAME")
+    return 123
     passw = os.environ.get("DB_PASSWORD")
     base = os.environ.get("DB_DATABASE")
     conn = connector(user, passw, host, base, port)
     repo = UserRepository(conn)
-    return {"Hello": passw}
+    data = repo.all()
+    return data
 
 
 @app.get("/items/{item_id}")
