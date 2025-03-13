@@ -2,8 +2,9 @@ from .connector import connector
 
 
 class Base_repository:
-    def __init__(self, conn: connector, table: str = "default_table"):
-        self.table: str = table
+
+    def __init__(self, conn: connector):
+        self.table = "default_table"
         self.connector: connector = conn
 
     def query(self, query: str, values: dict = None):
@@ -19,3 +20,5 @@ class Base_repository:
         while self.connector.next_row():
             data.append(self.connector.fetch_row())
         return data
+
+    # def findByWhere(self,where:str):

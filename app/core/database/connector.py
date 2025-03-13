@@ -31,14 +31,14 @@ class connector:
         self.cursor.execute(operation=query, params=values)
 
     def fetch_row(self) -> tuple | None:
-        if not self.cursor is None:
-            return self.row
-        return None
+        return self.row
 
     def next_row(self):
-        if not self.cursor is None:
-            self.row = self.cursor.fetchone()
-            return True
+        if self.cursor is None:
+            return False
 
-        self.row = None
+        row = self.cursor.fetchone()
+        if row:
+            self.row = row
+            return True
         return False
