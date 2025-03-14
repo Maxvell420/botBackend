@@ -1,11 +1,11 @@
-from .connector import connector
+from .connector import Connector
 
 
-class Base_repository:
+class BaseRepository:
 
-    def __init__(self, conn: connector):
+    def __init__(self, conn: Connector):
         self.table = "default_table"
-        self.connector: connector = conn
+        self.connector: Connector = conn
 
     def query(self, query: str, values: dict = None):
         self.connector.query(query, values)
