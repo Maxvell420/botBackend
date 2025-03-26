@@ -10,7 +10,7 @@ services:
           - "8000:8000"
         command: bash -c "uvicorn app.main:app --reload --host 0.0.0.0 --port 8000 && pip install -r requirements.txt"
         environment:
-            DB_USER: ${DB_USERNAME}
+            DB_USER: ${MYSQL_USER}
             DB_PASSWORD: ${DB_PASSWORD}
             DB_HOST: mysql
             DB_DATABASE: ${DB_DATABASE}
@@ -19,13 +19,13 @@ services:
             - app
     mysql:
         container_name: mysql
-        image: mysql:latest
+        image: mysql:8.0
         restart: always
         environment:
+            MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+            MYSQL_USER: ${MYSQL_USER}
             MYSQL_DATABASE: ${DB_DATABASE}
-            MYSQL_USER: ${DB_USERNAME}
             MYSQL_PASSWORD: ${DB_PASSWORD}
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
         volumes:
         - ./sql:/docker-entrypoint-initdb.d
         ports:

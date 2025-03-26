@@ -1,5 +1,5 @@
 from typing import Union
-from .domain.User import user_repository
+from .domain.User import UserRepository
 from fastapi import FastAPI, Depends
 from .core import dep_manager
 
@@ -8,8 +8,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root(req=Depends(dep_manager)):
-    return req
-    repo = user_repository(req.connector)
+    repo = UserRepository(req.connector)
     data = repo.all()
     return data
 
