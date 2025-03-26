@@ -1,16 +1,18 @@
 from typing import Union
-from .domain.User import UserRepository
-from fastapi import FastAPI, Depends
-from .core import dep_manager
+from fastapi import FastAPI, Request, Depends
+from .core import DepManger
 
-app = FastAPI()
+
+# from .domain.User import UserRepository
+
+app = FastAPI(dependencies=[Depends(DepManger)])
 
 
 @app.get("/")
-def read_root(req=Depends(dep_manager)):
-    repo = UserRepository(req.connector)
-    data = repo.all()
-    return data
+def read_root(req: Request):
+    return req.state.dep.auth.str
+    # repo = UserRepository()
+    return ""
 
 
 @app.get("/items/{item_id}")
