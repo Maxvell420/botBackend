@@ -1,0 +1,1 @@
+INSERT INTO `python`.`bot_users`(`password`,`name`) VALUES ('123456','Maxvell')

@@ -1,6 +1,8 @@
-# Класс приходящий в контролеры в котором соединение и прочее
 import os
+import copy
 from .database import Connector
+
+# Класс приходящий в контролеры в котором соединение и прочее
 
 
 # Класс для загрузки подключений к базе данных (Если их будет несколько)
@@ -18,4 +20,4 @@ class Context:
         return Connector(user=user, password=passw, host=host, database=base, port=port)
 
     def get_connector(self) -> Connector:
-        return self.connector
+        return copy.copy(self.connector)
