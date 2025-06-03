@@ -7,7 +7,7 @@ python3 -m venv .venv
 активация окружения
 source .venv/bin/activate
 Отключение
-deactivate 
+deactivate
 
 добавление репозитория в гит:
 git remote add origin git@github.com:Maxvell420/botBackend.git
