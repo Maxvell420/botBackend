@@ -12,6 +12,12 @@ services:
     depends_on:
       - db
     networks:
+      app-network:
+  webhook:
+    image: localtonet/localtonet
+    restart: unless-stopped
+    command: localtonet/localtonet authtoken ${WEBHOOK_KEY}
+    networks:
       - app-network
 
   db:

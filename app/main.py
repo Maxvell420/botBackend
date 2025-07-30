@@ -6,4 +6,4 @@ app = FastAPI()
 
 @app.get("/")
 def read_root(req: Request):
-    return ""
+    return ''

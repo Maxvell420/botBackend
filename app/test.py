@@ -10,7 +10,7 @@ app = FastAPI()
 
 
 @app.get("/")
-def read(user_id: int, db: Session = Depends(get_db)):
-    user = db.query(User).filter(User.id == user_id).first()
+def read(db: Session = Depends(get_db)):
+    # user = db.query(User).filter(User.id == user_id).first()
     # return url
-    return user
+    return {1: 1}
