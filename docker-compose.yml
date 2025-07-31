@@ -13,6 +13,7 @@ services:
       - db
     networks:
       app-network:
+        ipv4_address: 172.20.0.5 # Ваш статический IP
   webhook:
     image: localtonet/localtonet
     restart: unless-stopped
@@ -36,6 +37,9 @@ services:
 networks:
   app-network:
     driver: bridge
+    ipam:
+      config:
+        - subnet: "172.20.0.0/16"
 
 volumes:
   postgres_data:
