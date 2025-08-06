@@ -50,7 +50,7 @@ def recycleUpdates(data: Update, db: Session = Depends(get_db)):
 def set_up_webhook():
     load_dotenv(".env", override=True)
     webhook_url = os.getenv("WEBHOOK_URL")
-    response = requests.get(
+    requests.get(
         f"https://api.telegram.org/bot{bot_token}/setWebhook",
         params={
             "url": webhook_url,
